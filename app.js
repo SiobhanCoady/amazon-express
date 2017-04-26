@@ -2,6 +2,7 @@
 // yarn add sequelize
 // yarn add pg pg-hstore
 // yarn add sequelize-cli
+// yarn add faker
 
 
 var express = require('express');
