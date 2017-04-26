@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
+    "start": "nodemon ./bin/www",
     "debug": "nodemon --inspect ./bin/www",
     "db:create": "createdb --echo amazon_dev",
     "db:drop": "dropdb --echo amazon_dev"
