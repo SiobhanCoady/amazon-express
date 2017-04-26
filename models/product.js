@@ -1,7 +1,8 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Product = sequelize.define('Product', {
-    title: DataTypes.STRING,
+    title: {type: DataTypes.STRING,
+            unique: true},
     description: DataTypes.TEXT,
     price: DataTypes.DOUBLE
   }, {
