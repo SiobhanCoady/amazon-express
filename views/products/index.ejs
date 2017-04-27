@@ -6,10 +6,13 @@
           <a href="/products/<%= product.id %>">
             <%= product.title %>
           </a>
-          <ul>
-            <li>Created At: <%= product.createdAt %></li>
-          </ul>
         </li>
+        Created At: <%= product.createdAt %>
+        <!-- DELETE BUTTON -->
+        <form class="" action="/products/<%= product.id %>" method="post">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" name="submit" value="Delete">
+        </form>
       <% } %>
     </ul>
 

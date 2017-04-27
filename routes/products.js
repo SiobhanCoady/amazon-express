@@ -34,6 +34,16 @@ router.post('/', function(req, res, next) {
   })
 })
 
+// Products#destroy
+router.delete('/:id', function(req, res) {
+  const id = req.params.id;
+
+  Product
+    .findById(id)
+    .then(function(product) { return product.destroy() })
+    .then(function() { res.redirect('/products') });
+})
+
 // Products#show
 router.get('/:id', function(req, res, next) {
   const id = req.params.id;

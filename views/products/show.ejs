@@ -5,6 +5,12 @@
     <p><%= product.description %></p>
     <p><strong>Created At: </strong><%= product.createdAt %></p>
 
+    <!-- DELETE BUTTON -->
+    <form class="" action="/products/<%= product.id %>" method="post">
+      <input type="hidden" name="_method" value="DELETE">
+      <input type="submit" name="submit" value="Delete">
+    </form>
+
     <h2>Reviews</h2>
 
     <form class="" action="/products/<%= product.id %>/reviews" method="post">
