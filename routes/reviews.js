@@ -17,4 +17,15 @@ router.post('/', function(req, res) {
     .then(function() { res.redirect(`/products/${productId}`) })
 })
 
+// Reviews#destroy
+router.delete('/:id', function(req, res) {
+  const id = req.params.id;
+  const productId = req.params.productId;
+
+  Review
+    .findById(id)
+    .then(function(review) { return review.destroy() })
+    .then(function() { res.redirect(`/products/${productId}`) });
+})
+
 module.exports = router;
