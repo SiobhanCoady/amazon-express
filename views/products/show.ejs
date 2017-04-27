@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
     <a href="/products">Back</a>
-    <h1><%= product.title %> - $<%= product.price %></h1>
+    <h1><%= product.title %> - $<%= product.price.toFixed(2) %></h1>
     <p><%= product.description %></p>
     <p><strong>Created At: </strong><%= product.createdAt %></p>
 
