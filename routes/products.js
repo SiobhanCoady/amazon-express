@@ -6,14 +6,35 @@ const Product = require('../models/index').Product;
 // Products#index
 router.get('/', function(req, res, next) {
   Product
-    .findAll()
+    .findAll({order: [['createdAt', 'DESC']]})
     .then(function(products) {
       res.render('products/index', {products: products});
     });
 })
 
+// Products#new
+router.get('/new', function(req, res, next) {
+  const product = Product.build();
+
+  res.render('products/new', {product: product});
+})
+
+// Products#create
+router.post('/', function(req, res, next) {
+  const {title, description, price} = req.body;
+
+  Product
+  .create({title: title, description: description, price: price})
+  .then(function(product) {
+    res.redirect('/products');
+  })
+  .catch(function(err) {
+    next(err);
+  })
+})
+
 // Products#show
-router.get('/:id', function(req, res) {
+router.get('/:id', function(req, res, next) {
   const id = req.params.id;
 
   Product
