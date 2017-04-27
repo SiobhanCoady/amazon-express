@@ -1,0 +1,15 @@
+<%- include('../partials/header') %>
+    <h1>Edit Review</h1>
+
+    <form class="" action="/products/<%= review.ProductId %>/reviews/<%= review.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <div class="">
+        <textarea id="content" name="content" rows="8" cols="80"><%= review.content %></textarea>
+      </div>
+      <div class="">
+        <label for="rating">Rating</label>
+        <input type="number" step="1" name="rating" id="rating" value="<%= review.rating %>">
+      </div>
+      <input type="submit" name="submit" value="Submit">
+    </form>
+<%- include('../partials/footer') %>
