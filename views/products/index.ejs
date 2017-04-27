@@ -8,7 +8,11 @@
           </a>
         </li>
         Created At: <%= product.createdAt %>
-        <!-- DELETE BUTTON -->
+
+        <form action="/products/<%= product.id %>/edit">
+          <input type="submit" value="Edit">
+        </form>
+        
         <form class="" action="/products/<%= product.id %>" method="post">
           <input type="hidden" name="_method" value="DELETE">
           <input type="submit" name="submit" value="Delete">

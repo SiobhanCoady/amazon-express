@@ -44,6 +44,36 @@ router.delete('/:id', function(req, res) {
     .then(function() { res.redirect('/products') });
 })
 
+// Products#edit
+router.get('/:id/edit', function(req, res) {
+  const id = req.params.id;
+
+  Product
+    .findById(id)
+    .then(function(product) {
+      res.render('products/edit', {product: product})
+    });
+})
+
+// Products#update
+router.patch('/:id', function(req, res, next) {
+  const id = req.params.id;
+
+  Product
+    .findById(id)
+    .then(function(product) {
+      return product.update({
+        title: req.body.title,
+        description: req.body.description,
+        price: req.body.price
+      });
+    })
+    .then(function(product) {
+      res.redirect(`/products/${id}`);
+    })
+    .catch(function(err) { next(err) })
+})
+
 // Products#show
 router.get('/:id', function(req, res, next) {
   const id = req.params.id;
