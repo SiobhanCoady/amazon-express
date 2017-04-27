@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const reviews = require('./reviews');
 
 const Product = require('../models/index').Product;
 
@@ -43,5 +44,7 @@ router.get('/:id', function(req, res, next) {
       res.render('products/show', {product: product});
     });
 })
+
+router.use('/:productId/reviews', reviews);
 
 module.exports = router;
