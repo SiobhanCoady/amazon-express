@@ -18,4 +18,14 @@
       <input type="submit" name="submit" value="Submit">
     </form>
 
+    <ul class="reviews-list">
+      <% for (let review of reviews) { %>
+        <li>
+          <p><%= review.content %></p>
+          <p><strong>Rating:</strong> <%= review.rating %></p>
+          <p><strong>Created At:</strong> <%= review.createdAt %></p>
+        </li>
+      <% } %>
+    </ul>
+
 <%- include('../partials/footer') %>

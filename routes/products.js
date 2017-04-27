@@ -41,7 +41,13 @@ router.get('/:id', function(req, res, next) {
   Product
     .findById(id)
     .then(function(product) {
-      res.render('products/show', {product: product});
+      return Promise.all([
+        product,
+        product.getReviews({order: [['createdAt', 'DESC']]})
+      ])
+    })
+    .then(function([product, reviews]) {
+      res.render('products/show', {product: product, reviews:reviews});
     });
 })
 
