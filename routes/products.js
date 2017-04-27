@@ -27,7 +27,7 @@ router.post('/', function(req, res, next) {
   Product
   .create({title: title, description: description, price: price})
   .then(function(product) {
-    res.redirect('/products');
+    res.redirect(`/products/${product.id}`);
   })
   .catch(function(err) {
     next(err);
